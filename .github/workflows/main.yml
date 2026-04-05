@@ -10,3 +10,16 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: echo "Hello 2"
+  job3:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo "Hello 3"
+    needs:
+      - job1
+      - job2
+  job4:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo "Hello 4"
+    needs:
+      - job3
