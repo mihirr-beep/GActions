@@ -1,0 +1,21 @@
+name: "Testing the github Action"
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Echo Thing 1"
+        run: echo "Hello world from Job 1"
+      - name: "Echo Thing 2"
+        run: echo "Nice here"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: "Echo Thing 1"
+        run: echo "Hello world from Job 2"
+      - name: "Echo Thing 2"
+        run: echo "Nice here"  
